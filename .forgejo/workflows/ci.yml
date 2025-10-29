@@ -1,0 +1,82 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+
+jobs:
+  build:
+    # En Codeberg, los runners públicos usan 'docker'
+    runs-on: docker
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [18, 20]
+
+    steps:
+      # 1) Checkout + Git LFS
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      # 2) Node + caché de npm
+      - name: Use Node ${{ matrix.node }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      # 3) Instalar dependencias
+      - name: Install deps
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      # 4) Build
+      - name: Build
+        run: |
+          if npm run | grep -q " build"; then
+            npm run build
+          else
+            echo "No 'build' script found, skipping."
+          fi
+
+      # 5) Lint (opcional)
+      - name: Lint
+        run: |
+          if npm run | grep -q " lint"; then
+            npm run lint
+          else
+            echo "No 'lint' script found, skipping."
+          fi
+
+      # 6) Tests (opcional)
+      - name: Test
+        run: |
+          if npm run | grep -q " test"; then
+            npm test
+          else
+            echo "No 'test' script found, skipping."
+          fi
+
+      # 7) Publicar artefactos (si existe dist/ o www/)
+      - name: Upload build artifacts (dist/)
+        if: hashFiles('dist/**') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ matrix.node }}
+          path: dist/
+
+      - name: Upload demo artifacts (www/)
+        if: hashFiles('www/**') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: www-${{ matrix.node }}
+          path: www/
