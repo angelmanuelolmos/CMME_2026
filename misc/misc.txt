@@ -1,0 +1,23 @@
+
+First, download the Node windows installer: https://nodejs.org/en/download
+
+Open a cmd window and change directory to the project root, enter: cd cmme-editor-ts
+
+Then enter: npm install
+
+This will install the typescript compiler, and a testing http server.
+
+
+Second, install VSCode: https://code.visualstudio.com/download
+
+You can now open the project root folder in VSCode.
+
+To launch the HTTP server, in the VSCode Terminal window, enter: npm run start
+
+
+Now clicking 'run and debug' will 
+1) Compile all typescript into javascript, and copy it into the WWW folder.
+2) Launch a browser to test on.
+
+To switch between compiling Applet and Editor versions, locate file: src/test/index.ts
+Change var applet:boolean = true; to false.

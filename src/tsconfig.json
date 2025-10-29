@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "strict": false,
+        "strictNullChecks": false,
+        "noImplicitAny": true,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "alwaysStrict": true,
+		"sourceMap": true,
+		"target": "es6",
+		"lib": ["es6", "dom"],
+		
+		"outDir":"dist"
+        
+		
+		
+    }
+    
+}

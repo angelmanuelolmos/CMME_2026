@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Launch Chrome and Debug",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:8080",
+        "webRoot": "${workspaceFolder}/www",
+        "sourceMapPathOverrides": {
+          "webpack:///*": "${workspaceFolder}/*"
+        },
+        "preLaunchTask": "Build TypeScript"
+      }
+    ]
+  }
+  

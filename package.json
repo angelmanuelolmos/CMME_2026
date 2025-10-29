@@ -1,0 +1,27 @@
+{
+  "name": "cmme-editor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/Test/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server www -p 8080",
+    "build": "webpack",
+    "postbuild": "cpy dist/* ./www --parents"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "circular-dependency-plugin": "^5.0.0",
+    "cpy-cli": "^5.0.0",
+    "http-server": "^14.1.1",
+    "source-map-loader": "^3.0.2",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.2",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@types/resize-observer-browser": "^0.1.7"
+  }
+}

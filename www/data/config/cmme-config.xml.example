@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMMEConfig xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.cmme.org"
+            xmlns="http://www.cmme.org"
+            elementFormDefault="qualified">
+  <Viewer>
+    <!-- original-notation configuration with modern clefs and text
+    <Defaults>
+      <NoteShapes>original</NoteShapes>
+      <Barlines>tick</Barlines>
+      <Clefs>modern</Clefs>
+      <AccidentalSystem>original</AccidentalSystem>
+      <Text>modern</Text>
+    </Defaults>-->
+
+    <!-- modern-notation configuration: to use these defaults, delete or comment out the original-notation
+    settings above and uncomment the settings below -->
+    <Defaults>
+      <NoteShapes>modern</NoteShapes>
+      <Barlines>mensurstrich</Barlines>
+      <Clefs>modern</Clefs>
+      <AccidentalSystem>modern</AccidentalSystem>
+      <ColorationBrackets>other</ColorationBrackets>
+      <Text>modern</Text>
+    </Defaults>
+
+  </Viewer>
+
+  <!-- override MIDI defaults -->
+  <MIDI>
+    <BPM>80</BPM>
+    <RestBetweenSections>2</RestBetweenSections>
+    <Instrument>57</Instrument>
+    <Velocity>50</Velocity>
+    <Gain>0.9</Gain>
+  </MIDI>
+
+</CMMEConfig>
