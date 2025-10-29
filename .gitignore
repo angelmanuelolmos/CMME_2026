@@ -1,0 +1,43 @@
+# Node / TypeScript
+node_modules/
+dist/
+build/
+coverage/
+.nyc_output/
+*.log
+*.map
+*.tsbuildinfo
+.eslintcache
+
+# Herramientas y cachés
+.cache/
+.parcel-cache/
+.turbo/
+.storybook-out/
+
+# SO
+.DS_Store
+Thumbs.db
+
+# IDEs/editores
+.vscode/
+.idea/
+*.iml
+*.sw?
+*.swo
+
+# Entornos
+.env
+.env.*
+!.env.example
+
+# Frameworks (por si migramos)
+.next/
+.nuxt/
+.out/
+.vercel/
+.netlify/
+
+# Tests
+junit.xml
+coverage-final.json
