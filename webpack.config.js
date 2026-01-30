@@ -4,9 +4,9 @@ const CircularDependencyPlugin = require('circular-dependency-plugin')
 
 module.exports = {
   entry: {
-	  viewer: './src/Test/index.ts',
-	  devtool: 'source-map'
+	  viewer: './src/Test/index.ts'
   },
+  devtool: 'source-map',
   
   
   
