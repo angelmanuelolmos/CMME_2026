@@ -387,8 +387,8 @@ Parameters:
 	{
 		try
 		{
-			let lightBG:BufferedImage = ImageIO.read(Resources.getResource("data/imgs/GUIicons/buttonbg-light.gif"));
-			let darkBG:BufferedImage = ImageIO.read(Resources.getResource("data/imgs/GUIicons/buttonbg-dark.gif"));
+			let lightBG:BufferedImage = ImageIO.read(Resources.getResource("data/imgs/guiicons/buttonbg-light.gif"));
+			let darkBG:BufferedImage = ImageIO.read(Resources.getResource("data/imgs/guiicons/buttonbg-dark.gif"));
 			MusicWin.NoteShapesOldIcon_light = MusicWin.makeIconWithBG("noteval-buttonORIGa.gif",lightBG);
 			MusicWin.NoteShapesOldIcon_dark = MusicWin.makeIconWithBG("noteval-buttonORIGa.gif",darkBG);
 			MusicWin.NoteShapesModIcon_light = MusicWin.makeIconWithBG("noteval-buttonMODERNa.gif",lightBG);
@@ -442,7 +442,7 @@ Parameters:
 	static makeIconWithBG(imgFilename:string,BG:BufferedImage):ImageIcon
 	{
 		let curCanvas:BufferedImage = new BufferedImage(BG.getWidth(),BG.getHeight(),BufferedImage.TYPE_INT_ARGB);
-		let curFileImg:BufferedImage = ImageIO.read(Resources.getResource("data/imgs/GUIicons/" + imgFilename));
+		let curFileImg:BufferedImage = ImageIO.read(Resources.getResource("data/imgs/guiicons/" + imgFilename));
 		let curG:Graphics2D = curCanvas.createGraphics();
 		curG.drawImage(BG,0,0,null);
 		curG.drawImage(curFileImg,0,0,null);
