@@ -58,7 +58,14 @@ function boot()
 
   if( applet )
   {
-    Applet._mapParams.set("file","Missa-Mort-et-Merci_01kyrie.cmme.xml" );
+    const params = new URLSearchParams(window.location.search);
+
+    // Prefer "src" for iframe embedding, fallback to local demo file.
+    // For MVP, src is treated as a path relative to www/.
+    const srcParam = params.get("src");
+    const fileToLoad = srcParam && srcParam.trim().length ? srcParam.trim() : "Missa-Mort-et-Merci_01kyrie.cmme.xml";
+
+    Applet._mapParams.set("file", fileToLoad);
 
     var appletMain:AppletMain = new AppletMain();
     appletMain.init();
